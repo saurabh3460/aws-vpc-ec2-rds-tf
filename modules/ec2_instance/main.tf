@@ -33,7 +33,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = var.vpc_security_group_ids
 
   tags = {
-    Name = "web_${var.vpc_name}"
+    Name = "web"
   }
 
 }
