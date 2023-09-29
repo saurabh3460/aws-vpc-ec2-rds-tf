@@ -28,3 +28,14 @@ module "ec2" {
 }
 
 
+module "rds" {
+  source = "./modules/rds_instance"
+  depends_on = [ module.network ]
+  db_name = var.db_name
+  username = var.username
+  instance_class = var.instance_class
+  vpc_security_group_ids = [module.network.rds_sg_id]
+  db_subnet_group_name = var.db_subnet_group_name
+  subnet_ids = module.network.private_subnet_ids
+}
+

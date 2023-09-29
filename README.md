@@ -1,4 +1,7 @@
-aws ec2 describe-key-pairs --key-names final_assg_key --query 'KeyPairs[*].PublicKeyMaterial' --output text
 
 
-aws ec2 describe-key-pairs --key-names final_assg_key --query 'KeyPairs[*].PublicKey' --output text
+terraform plan --var-file test.tfvars
+
+terraform apply --var-file test.tfvars
+
+terraform destroy --var-file test.tfvars
